@@ -1,12 +1,16 @@
 const BGcolor = "#222";
 const color = "#DDD";
+
 document.body.style.backgroundColor = BGcolor;
 
 const changeColors = () => {
-  const divs = document.querySelectorAll("div, th, tr, td");
-  divs.forEach((div) => {
-    div.style.backgroundColor = BGcolor;
-    div.style.color = color;
+  const changes = document.querySelectorAll(
+    "#app, .organization-selection, .bg-white, .slidebtn, .slidearea, .organizer-area, .btn, .card, .bg-light, th, tr, td"
+  );
+  changes.forEach((change) => {
+    change.style.backgroundColor = BGcolor;
+    change.classList.remove("bg-white");
+    change.classList.remove("bg-light");
   });
 };
 
@@ -17,25 +21,25 @@ const linkColor = () => {
   });
 };
 
-changeColors();
-linkColor();
+const headerFix = () => {
+  const statTableHeaders = document.querySelectorAll(
+    ".sticky-header-cloned-wrapper"
+  );
+  const pageNavbar = document.querySelector(".navbar-item.secondary");
 
-const targetNode = document.querySelector(".matches");
-
-const config = { attributes: true, childList: true, subtree: true };
-
-const callback = (mutationList, observer) => {
-  for (const mutation of mutationList) {
-    if (mutation.type === "childList") {
-      const matchDivs = document.querySelectorAll(".bg-light");
-      matchDivs.forEach((matchDiv) => {
-        matchDiv.classList.remove("bg-light");
-        matchDiv.style.backgroundColor = BGcolor;
-        matchDiv.style.color = color;
-      });
-      linkColor();
-    }
+  if (statTableHeaders) {
+    statTableHeaders.forEach((statTableHeader) => {
+      statTableHeader.style.top = `${pageNavbar.offsetHeight}px`;
+    });
   }
 };
-const observer = new MutationObserver(callback);
-observer.observe(targetNode, config);
+
+changeColors();
+linkColor();
+headerFix();
+
+document.addEventListener("scroll", () => {
+  changeColors();
+  linkColor();
+  headerFix();
+});
