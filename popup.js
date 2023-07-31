@@ -38,7 +38,9 @@ const helpPara = document.querySelector("p");
 
 helpDiv.addEventListener("mouseover", () => {
   helpPara.style.opacity = "1";
+  helpPara.style.zIndex = "1";
 });
 helpDiv.addEventListener("mouseout", () => {
   helpPara.style.opacity = "0";
+  helpPara.style.zIndex = "-1";
 });
