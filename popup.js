@@ -32,3 +32,13 @@ colorForm.addEventListener("submit", (event) => {
   chrome.storage.local.set({ bgColor: bgValue });
   chrome.storage.local.set({ textColor: textValue });
 });
+
+const helpDiv = document.querySelector(".help");
+const helpPara = document.querySelector("p");
+
+helpDiv.addEventListener("mouseover", () => {
+  helpPara.style.opacity = "1";
+});
+helpDiv.addEventListener("mouseout", () => {
+  helpPara.style.opacity = "0";
+});
