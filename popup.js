@@ -7,8 +7,14 @@ let textColor = "";
 
 chrome.storage.local.get(["bgColor"]).then((result) => {
   bgColor = result.bgColor;
+  if (bgColor === undefined) {
+    bgColor = "#123";
+  }
   chrome.storage.local.get(["textColor"]).then((result) => {
     textColor = result.textColor;
+    if (textColor === undefined) {
+      textColor = "#aaa";
+    }
 
     bgInput.value = bgColor;
     textInput.value = textColor;

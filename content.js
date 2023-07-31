@@ -2,14 +2,20 @@ let bgColor = "";
 let textColor = "";
 chrome.storage.local.get(["bgColor"]).then((result) => {
   bgColor = result.bgColor;
+  if (bgColor === undefined) {
+    bgColor = "#123";
+  }
   chrome.storage.local.get(["textColor"]).then((result) => {
     textColor = result.textColor;
+    if (textColor === undefined) {
+      textColor = "#aaa";
+    }
 
     document.body.style.backgroundColor = bgColor;
 
     const changeBgColors = () => {
       const changes = document.querySelectorAll(
-        "#app, .organization-selection, .bg-white, .slidebtn, .slidearea, .organizer-area, .btn, .card, .bg-light, th, tr, td"
+        "#app, .organization-selection, .bg-white, .slidebtn, .slidearea, .organizer-area, .btn, .card, .bg-light, th, td"
       );
       changes.forEach((change) => {
         change.style.backgroundColor = bgColor;
@@ -19,7 +25,7 @@ chrome.storage.local.get(["bgColor"]).then((result) => {
     };
 
     const changeTextColor = () => {
-      const links = document.querySelectorAll("a, button span, .slidebtn p");
+      const links = document.querySelectorAll("a, button span, p, th, td");
       links.forEach((link) => {
         link.style.color = textColor;
       });
