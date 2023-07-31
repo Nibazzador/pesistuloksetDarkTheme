@@ -25,13 +25,15 @@ chrome.storage.local.get(["bgColor"]).then((result) => {
     };
 
     const changeTextColor = () => {
-      const links = document.querySelectorAll("a, button span, p, th, td");
-      links.forEach((link) => {
-        link.style.color = textColor;
+      const texts = document.querySelectorAll("a, span, p, th, td, .row, h2");
+      texts.forEach((text) => {
+        text.style.color = textColor;
       });
-      const selectedDate = document.querySelector(".selected-date");
-      if (selectedDate) {
-        selectedDate.style.color = bgColor;
+      const actives = document.querySelectorAll(".selected-date, a.active");
+      if (actives[0]) {
+        actives.forEach((active) => {
+          active.style.color = bgColor;
+        });
       }
     };
 
