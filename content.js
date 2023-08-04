@@ -26,7 +26,7 @@ const headerFix = () => {
 
   if (statTableHeaders) {
     statTableHeaders.forEach((statTableHeader) => {
-      statTableHeader.style.top = `${pageNavbar.offsetHeight}px`;
+      statTableHeader.style.top = `${pageNavbar.offsetHeight - 1}px`;
     });
   }
 };
