@@ -1,0 +1,29 @@
+:root {
+  --backgroundColor: #123;
+  --color: "aaa";
+}
+
+body,
+#app,
+.navbar,
+.navbar-light,
+.container,
+.organizer-area,
+.slidebtn,
+button,
+th,
+td {
+  background: var(--backgroundColor) !important;
+}
+
+div,
+a,
+button,
+th,
+td {
+  color: var(--color) !important;
+}
+
+#stickyheader .active {
+  color: #3670c0 !important;
+}

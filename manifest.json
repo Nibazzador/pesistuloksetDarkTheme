@@ -5,7 +5,8 @@
   "content_scripts": [
     {
       "matches": ["https://*.pesistulokset.fi/*"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "css": ["style.css"]
     }
   ],
   "permissions": ["storage"],
