@@ -7,7 +7,7 @@ body,
 #app,
 .navbar,
 .navbar-light,
-.container,
+.slidearea,
 .organizer-area,
 .slidebtn,
 button,
@@ -20,10 +20,17 @@ div,
 a,
 button,
 th,
-td {
+td,
+h2,
+h3,
+span {
   color: var(--color) !important;
 }
 
 #stickyheader .active {
   color: #3670c0 !important;
+}
+
+.selected-date {
+  color: var(--backgroundColor) !important;
 }

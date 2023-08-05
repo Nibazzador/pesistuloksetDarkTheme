@@ -11,10 +11,13 @@ chrome.storage.local.get(["textColor"]).then((result) => {
 });
 
 const deleteClass = () => {
-  const bgImportants = document.querySelectorAll(".bg-white, .bg-light");
+  const bgImportants = document.querySelectorAll(
+    ".bg-white, .bg-light, .text-text"
+  );
   bgImportants.forEach((bgImportant) => {
     bgImportant.classList.remove("bg-white");
     bgImportant.classList.remove("bg-light");
+    bgImportant.classList.remove("text-text");
   });
 };
 
