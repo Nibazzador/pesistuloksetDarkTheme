@@ -1,5 +1,5 @@
-let bgColor = "";
-let textColor = "";
+let bgColor = "#123";
+let textColor = "#aaa";
 chrome.storage.local.get(["bgColor"]).then((result) => {
   document.documentElement.style.setProperty(
     "--backgroundColor",
