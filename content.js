@@ -5,9 +5,19 @@ chrome.storage.local.get(["bgColor"]).then((result) => {
     "--backgroundColor",
     result.bgColor
   );
+  if (result.bgColor === undefined){
+    bgColor = "#123";
+  }
+  document.documentElement.style.setProperty(
+    "--backgroundColor",
+    "#123"
+  );
 });
 chrome.storage.local.get(["textColor"]).then((result) => {
   document.documentElement.style.setProperty("--color", result.textColor);
+  if (result.textColor === undefined){
+    document.documentElement.style.setProperty("--color", "#aaa");
+  }
 });
 
 const deleteClass = () => {
