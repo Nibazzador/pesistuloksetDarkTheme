@@ -2,13 +2,19 @@ const colorForm = document.getElementById("colorForm");
 const bgInput = document.getElementById("bgColor");
 const textInput = document.getElementById("textColor");
 
-let bgColor = "#123";
+let bgColor = "";
 let textColor = "#aaa";
 
 chrome.storage.local.get(["bgColor"]).then((result) => {
   bgColor = result.bgColor;
+  if (result.bgColor === undefined){
+    bgColor = "#123";
+  }
   chrome.storage.local.get(["textColor"]).then((result) => {
     textColor = result.textColor;
+    if (result.textColor === undefined){
+      textColor = "#aaa";
+    }
     bgInput.value = bgColor;
     textInput.value = textColor;
     document.body.style.backgroundColor = bgColor;
